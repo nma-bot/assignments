@@ -1,0 +1,16 @@
+.logo,
+.main-nav,
+.search,
+.hero,
+.columns,
+.main-footer {
+  @include frame;
+}
+
+.main-header,
+.search,
+.hero,
+.site-info,
+.main-footer {
+  margin-bottom: 1rem;
+}
