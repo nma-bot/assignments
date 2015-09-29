@@ -1,4 +1,4 @@
-# Week 4: CSS Architecture & Frameworks
+# Week 5: CSS Architecture & Frameworks
 
 Replicating visual designs perfectly in code is just one side and challenge of writing CSS. As you begin to write CSS for larger sites and applications, additional considerations need to be taken in to account, including:
 
@@ -256,11 +256,15 @@ Grids start with a wrapping container, which we already have. Below are the chan
 
 **layouts/_grid.scss**
 
-```css
+```scss
 .container {
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
+
+  * {
+    box-sizing: border-box;
+  }
 }
 ```
 We're essentially saying that our grid should be 100% width on screens equal to or less than 960px.
@@ -395,46 +399,108 @@ The negative margins on the parent row will counteract the left padding and righ
 **grid.html**
 ```html
 <div class="container">
+  <div class="row">
+        <div class="col-1">1</div>  
+    </div> 
     <div class="row">
-        <div class="col-12">12</div>  
+        <div class="col-2">2</div> 
+        <div class="col-2">2</div> 
+    </div> 
+    <div class="row">
+        <div class="col-3">3</div> 
+        <div class="col-3">3</div> 
+        <div class="col-3">3</div> 
+    </div> 
+    <div class="row">
+        <div class="col-4">4</div> 
+        <div class="col-4">4</div> 
+        <div class="col-4">4</div> 
+        <div class="col-4">4</div> 
+    </div> 
+    <div class="row">
+        <div class="col-5">5</div> 
+        <div class="col-5">5</div> 
+        <div class="col-5">5</div> 
+        <div class="col-5">5</div> 
+        <div class="col-5">5</div> 
     </div> 
     <div class="row">
         <div class="col-6">6</div> 
         <div class="col-6">6</div> 
+        <div class="col-6">6</div> 
+        <div class="col-6">6</div> 
+        <div class="col-6">6</div>
+        <div class="col-6">6</div>
+    </div>  
+    <div class="row">
+        <div class="col-7">7</div> 
+        <div class="col-7">7</div> 
+        <div class="col-7">7</div> 
+        <div class="col-7">7</div> 
+        <div class="col-7">7</div>
+        <div class="col-7">7</div> 
+        <div class="col-7">7</div> 
+    </div>
+    <div class="row">
+        <div class="col-8">8</div> 
+        <div class="col-8">8</div> 
+        <div class="col-8">8</div> 
+        <div class="col-8">8</div> 
+        <div class="col-8">8</div>
+        <div class="col-8">8</div> 
+        <div class="col-8">8</div> 
+        <div class="col-8">8</div> 
     </div> 
     <div class="row">
-        <div class="col-4">4</div> 
-        <div class="col-4">4</div> 
-        <div class="col-4">4</div> 
+        <div class="col-9">9</div> 
+        <div class="col-9">9</div> 
+        <div class="col-9">9</div> 
+        <div class="col-9">9</div> 
+        <div class="col-9">9</div>
+        <div class="col-9">9</div> 
+        <div class="col-9">9</div> 
+        <div class="col-9">9</div> 
+        <div class="col-9">9</div> 
     </div> 
     <div class="row">
-        <div class="col-3">3</div> 
-        <div class="col-3">3</div> 
-        <div class="col-3">3</div> 
-        <div class="col-3">3</div> 
+        <div class="col-10">10</div> 
+        <div class="col-10">10</div> 
+        <div class="col-10">10</div> 
+        <div class="col-10">10</div> 
+        <div class="col-10">10</div>
+        <div class="col-10">10</div> 
+        <div class="col-10">10</div> 
+        <div class="col-10">10</div> 
+        <div class="col-10">10</div> 
+        <div class="col-10">10</div> 
     </div> 
     <div class="row">
-        <div class="col-2">2</div> 
-        <div class="col-2">2</div> 
-        <div class="col-2">2</div> 
-        <div class="col-2">2</div>
-        <div class="col-2">2</div> 
-        <div class="col-2">2</div> 
+        <div class="col-11">11</div> 
+        <div class="col-11">11</div> 
+        <div class="col-11">11</div> 
+        <div class="col-11">11</div> 
+        <div class="col-11">11</div>
+        <div class="col-11">11</div> 
+        <div class="col-11">11</div> 
+        <div class="col-11">11</div> 
+        <div class="col-11">11</div> 
+        <div class="col-11">11</div> 
+        <div class="col-11">11</div> 
     </div> 
     <div class="row">
-        <div class="col-1">1</div> 
-        <div class="col-1">1</div> 
-        <div class="col-1">1</div> 
-        <div class="col-1">1</div>
-        <div class="col-1">1</div> 
-        <div class="col-1">1</div> 
-        <div class="col-1">1</div> 
-        <div class="col-1">1</div> 
-        <div class="col-1">1</div> 
-        <div class="col-1">1</div>
-        <div class="col-1">1</div> 
-        <div class="col-1">1</div> 
-    </div> 
+        <div class="col-12">12</div> 
+        <div class="col-12">12</div> 
+        <div class="col-12">12</div> 
+        <div class="col-12">12</div>
+        <div class="col-12">12</div> 
+        <div class="col-12">12</div> 
+        <div class="col-12">12</div> 
+        <div class="col-12">12</div> 
+        <div class="col-12">12</div> 
+        <div class="col-12">12</div>
+        <div class="col-12">12</div> 
+        <div class="col-12">12</div> 
+    </div>
 </div>
 ```
 Now that we have our grid, let's make it responsive!
@@ -453,7 +519,7 @@ Now that we have our grid, making it accommodate smaller screens is relatively s
 
 @for $i from 1 through 12 {
   .col-#{$i} { 
-    @media screen only and (min-width: 600px){
+    @media screen and (min-width: 600px){
       width: 100% / $i; 
     }
   }
@@ -491,7 +557,7 @@ So... if the screen size is less than 600px, our columns are 100% width; anythin
 
 @for $i from 1 through 12 {
   .col-#{$i} { 
-    @media screen only and (min-width: 600px){
+    @media screen and (min-width: 600px){
       width: 100% / $i; 
     }
   }
