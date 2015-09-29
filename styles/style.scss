@@ -1,3 +1,18 @@
+// Variables
+$full-width: 100%;
+$full-height: 100%;
+
+// Mixins
+@mixin frame {
+  background-color: #FCFCFC;
+  border: 1px solid #333;
+  border-radius: 1px;
+  height: $full-height;
+  vertical-align: middle;
+  text-align: center;
+}
+
+// Styles
 *,
 *:before,
 *:after {
@@ -8,7 +23,7 @@
 
 html,
 body {
-  height: 100%;
+  height: $full-height;
 }
 
 html {
@@ -17,14 +32,26 @@ html {
 }
 
 body {
-  font: normal normal 300 16px/1.5 "Open Sans", "Roboto", "Helvetica Neue", Helvetica, sans-serif;
+  font: normal normal 300 16px/1.5 'Open Sans', 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+@mixin cf {
+  &::before,
+  &::after {
+    display: table;
+    content: '';
+  }
+
+  &::after {
+    clear: both;
+  }
 }
 
 .container {
-  width: 100%;
+  width: $full-width;
   max-width: 960px;
   margin: 0 auto;
-  height: 100%;
+  height: $full-height;
   position: relative;
 }
 
@@ -39,12 +66,7 @@ body {
 .slide-03,
 .slide-04,
 .main-footer {
-  background-color: #FCFCFC;
-  border: 1px solid #333;
-  border-radius: 1px;
-  height: 100%;
-  vertical-align: middle;
-  text-align: center;
+  @include frame;
 }
 
 .main-header,
@@ -58,46 +80,46 @@ body {
 .main-header {
   border: 0 none;
   height: 5em;
-}
 
-.main-header .logo,
-.main-header .main-nav,
-.main-header .search {
-  height: 100%;
-  position: absolute;
-}
+  .logo,
+  .main-nav,
+  .search {
+    height: $full-height;
+    position: absolute;
+  }
 
-.main-header .logo,
-.main-header .search {
-  width: 6.5em;
-  line-height: 5em;
-}
+  .logo,
+  .search {
+    width: 6.5em;
+    line-height: 5em;
+  }
 
-.main-header .logo {
-  display: inline-block;
-  top: 0;
-  left: 0;
-}
+  .logo {
+    display: inline-block;
+    top: 0;
+    left: 0;
+  }
 
-.main-header .search {
-  top: 0;
-  right: 0;
-}
+  .search {
+    top: 0;
+    right: 0;
+  }
 
-.main-header .main-nav {
-  width: 20em;
-  margin-left: -10em;
-  top: 0;
-  left: 50%;
-}
+  .main-nav {
+    width: 20em;
+    margin-left: -10em;
+    top: 0;
+    left: 50%;
+  }
 
-.main-header .main-nav li {
-  display: inline-block;
-  height: 5em;
-  padding: 0 0.5em;
-  line-height: 5em;
-  vertical-align: middle;
-  list-style: none;
+  .main-nav li {
+    display: inline-block;
+    height: 5em;
+    padding: 0 0.5em;
+    line-height: 5em;
+    vertical-align: middle;
+    list-style: none;
+  }
 }
 
 .hero {
@@ -108,21 +130,12 @@ body {
 
 .content {
   height: auto;
-}
-
-.content::before,
-.content::after {
-  display: table;
-  content: '';
-}
-
-.content::after {
-  clear: both;
+  @include cf;
 }
 
 .content > [class^="info-"] {
   display: inline-block;
-  height: 100%;
+  height: $full-height;
   width: 50%;
   font-size: 2em;
   line-height: 25rem;
@@ -137,10 +150,11 @@ body {
 }
 
 .carousel {
-  width: 100%;
+  width: $full-width;
   height: 31.25em;
   border-left: 0 none;
   border-right: 0 none;
+
   /* Scrolling section */
   overflow-y: hidden;
   overflow-x: scroll;
@@ -150,8 +164,8 @@ body {
 
 .carousel > [class^="slide-"] {
   display: inline-block;
-  height: 100%;
-  width: 50%;
+  height: $full-height;
+  width: $full-width / 2;
   margin-right: 0.5rem;
   font-size: 2em;
   line-height: 31.25rem;
@@ -162,5 +176,3 @@ body {
   font-size: 2em;
   line-height: 22.5rem;
 }
-
-/*# sourceMappingURL=style.css.map */
