@@ -51,6 +51,7 @@ var class_2 = [
   }
 ];
 
+
 /*
  * 2.
  * Below is our student status message
